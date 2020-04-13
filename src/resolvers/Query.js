@@ -14,6 +14,13 @@ const Query = {
 
     return db.users.filter(user => user.id === id)
   },
+  author: (parent, { id }, { db }, info) => {
+    if (!id) {
+      return db.authors
+    }
+
+    return db.authors.filter(author => author.id === id)
+  }
 }
 
 export default Query

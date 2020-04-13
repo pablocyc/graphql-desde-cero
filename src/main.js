@@ -1,9 +1,11 @@
 import {GraphQLServer} from 'graphql-yoga'
 import Query from './resolvers/Query'
+import Author from './resolvers/Author'
 import db from './db'
 
 const resolvers = {
   Query, 
+  Author,
 }
 
 const context = {
