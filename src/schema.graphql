@@ -1,10 +1,11 @@
 type Query {
   hello(name: String): String!
   quantity: Int!
-  getUser: User!
+  user(id: ID): [User!]!
 }
 
 type User {
+  id: ID!
   name: String!
   lastName: String!
 }

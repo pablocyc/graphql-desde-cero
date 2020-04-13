@@ -5,7 +5,15 @@ const Query = {
     return `Hello ${name || 'world'}`
   },
   quantity: () => 1,
-  getUser: () => { return {name: 'Pablo', lastName: 'Cardozo' }},
+  user: (parent, { id }, ctx, info) => {
+    const { db } = ctx
+
+    if (!id) {
+      return db.users
+    }
+
+    return db.users.filter(user => user.id === id)
+  },
 }
 
 export default Query
